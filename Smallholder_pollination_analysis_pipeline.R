@@ -42,14 +42,17 @@ output.path <- "XXXX" # Change this to the file path where results and figures w
 #Load in data files
 
 ##Pollinator visitation data - this is the main plant-pollinator interaction dataset from the visitation survey data 
-poll_visitation_data <- data.table(read_excel(file.path(input.path, "MP_pollinator_visitation_2023-06-09.xlsx"),
+#Download this file from Dryad: https://doi.org/10.5061/dryad.0rxwdbs91    
+poll_visitation_data <- data.table(read_excel(file.path(input.path, "Plant_pollinator_visitation_data.xlsx"),
                                               sheet = "Visitation data", 
                                               na = c("", "---", NA)))  
 
-##Import pollen capacity data - this is a database listing the mean number of pollen grains found on each insect taxon (termed pollen carrying capacity)
+##Import pollen capacity data - this is a database listing the mean number of pollen grains found on each insect taxon (termed pollen carrying capacity) 
+#File available from GitHub: https://github.com/tom-timberlake/smallholder_pollination 
 pollen_data <- read.csv(file.path(input.path, "pollen_capacity_OTU.csv")) 
 
-##Import crop importance data - this is a dataset of each pollinator-dependent crop, listing their nutritional and economic importance values
+##Import crop importance data - this is a dataset of each pollinator-dependent crop, listing their nutritional and economic importance values  
+#File available from GitHub: https://github.com/tom-timberlake/smallholder_pollination 
 crop_importance_data <- data.table(read_excel(file.path(input.path, "Jumla_crop_importance_values.xlsx"),
                                               sheet = "Sheet1", 
                                               na = c("", "---", NA)))  
